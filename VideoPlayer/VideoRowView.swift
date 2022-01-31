@@ -21,13 +21,11 @@ struct VideoRowView: View {
         VideoPlayer(player: player)
             
         
-        
-             .background(GeometryReader { gp -> Color in
-                                       let rect = gp.frame(in: .named("OuterV")) // < in specific container
-                                        // let rect = gp.frame(in: .global) // < in window
-                                         //let rect = gp.frame(in: .local) // < own bounds
-                                        print("Origin: \(rect.origin)")
+        //Where autoplay happens
+             .background(GeometryReader { metrics -> Color in
+                                       let rect = metrics.frame(in: .global)
                  
+                 //Constraints determining where video pauses and plays
                                         if rect.origin.y > -65 &&  rect.origin.y < 90 {
                    
                                             
@@ -45,6 +43,8 @@ struct VideoRowView: View {
            .clipShape(RoundedRectangle(cornerRadius: 12))
             
            .onAppear() {
+               
+               //Player gets set up with video url to be used on appear  
                  
                 player = AVPlayer(url:  URL(string: medium.description)!)
                  

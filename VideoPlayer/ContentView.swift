@@ -20,7 +20,7 @@ struct ContentView: View {
         
         List (media, id: \.self){ item in
             
-            
+            //Item type determines what kind of row view is used.  Whether text or video.
               if item.type == "text" {
                   ListRowView(medium: item)
                       .padding(.vertical, 4)
