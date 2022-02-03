@@ -22,7 +22,7 @@ struct VideoRowView: View {
             
         
         //Where autoplay happens
-             .background(GeometryReader { metrics -> Color in
+             .background(GeometryReader { metrics -> Path in
                                        let rect = metrics.frame(in: .global)
                  
                  //Constraints determining where video pauses and plays
@@ -36,7 +36,7 @@ struct VideoRowView: View {
                                             player.pause()
                    
                                         }
-                                        return Color.clear
+                                        return Path()
                                     })
          
               

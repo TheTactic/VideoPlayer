@@ -22,6 +22,7 @@ struct ContentView: View {
             
             //Item type determines what kind of row view is used.  Whether text or video.
               if item.type == "text" {
+                  
                   ListRowView(medium: item)
                       .padding(.vertical, 4)
                       .frame(height: metrics.size.height/3)
@@ -31,8 +32,6 @@ struct ContentView: View {
               }else {
                  
                   VideoRowView(medium: item)
-                      
-                
                 .padding(.vertical, 4)
                 .frame(height: metrics.size.height/3)
                 .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
